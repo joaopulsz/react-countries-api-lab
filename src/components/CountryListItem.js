@@ -1,6 +1,11 @@
-const CountryListItem = () => {
+const CountryListItem = ({country}) => {
     return (
-        <li>One CountryListItem!</li>
+        <ul>
+            <li><strong>{country.name} {country.flag}</strong></li>
+            <li>Capital: {country.capital}</li>
+            <li>Region: {country.region}</li>
+            <li>Population {country.population}</li>
+        </ul>
     );
 }
 
