@@ -1,3 +1,7 @@
 main {
     display: flex;
 }
+
+#visited-list #visited {
+    display: none;
+}

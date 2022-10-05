@@ -8,7 +8,13 @@ const CountriesContainer = () => {
     const [visitedCountries, setVisitedCountries] = useState([]);
 
     const visitedFunc = (country) => {
-        setVisitedCountries([...visitedCountries, country]);
+        console.log(country.name.common)
+        if (visitedCountries.includes(country)) {
+            visitedCountries.splice(visitedCountries.indexOf(country), 1);
+            setVisitedCountries([...visitedCountries]);
+        } else {
+            setVisitedCountries([...visitedCountries, country]);
+        }
     }
 
     const fetchCountries = () => {
