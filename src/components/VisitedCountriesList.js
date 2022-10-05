@@ -1,12 +1,22 @@
 import CountryListItem from "./CountryListItem";
 
-const VisitedCountriesList = () => {
+const VisitedCountriesList = ({countries}) => {
+
+    const countryObjectsArray = countries.map(country => {
+        return {
+            name: country.name.common,
+            flag: country.flag,
+            capital: country.capital,
+            region: country.region,
+            population: country.population
+        }
+    })
+
     return(
-        <>
-            <h2>All the countries I've visited!</h2>
-            <CountryListItem/>
-            <CountryListItem/>
-        </>
+        <section>
+            <h2>All the countries I've visited:</h2>
+            {countryObjectsArray.map((element, index) => {return <CountryListItem key={index} country={element} />})}
+        </section>
     );
 }
 

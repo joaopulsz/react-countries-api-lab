@@ -1,22 +1,23 @@
 import CountryListItem from "./CountryListItem";
 
-const CountriesList = ({countries}) => {
+const CountriesList = ({countries, visitedFunc}) => {
     const countryObjectsArray = countries.map(country => {
         return {
             name: country.name.common,
             flag: country.flag,
             capital: country.capital,
             region: country.region,
-            population: country.population
+            population: country.population,
+            area: country.area
         }
     })
 
     return(
-        <>
-            <h2>CountriesList here!</h2>
+        <section>
+            <h2>Countries of the world:</h2>
             
-            {countryObjectsArray.map((element, index) => {return <CountryListItem key={index} country={element} />})}
-        </>
+            {countryObjectsArray.map((element, index) => {return <CountryListItem key={index} country={element} visitedFunc={visitedFunc}/>})}
+        </section>
     );
 }
 

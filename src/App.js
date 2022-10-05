@@ -5,7 +5,7 @@ import './App.css';
 function App() {
   return (
     <>
-      <h1>TravelBucketList</h1>
+      <h1>Travel Bucket List</h1>
       <CountriesContainer />
     </>
   );

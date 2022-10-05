@@ -5,9 +5,13 @@ import VisitedCountriesList from "../components/VisitedCountriesList";
 
 const CountriesContainer = () => {
     const [countries, setCountries] = useState([]);
+    const [visitedCountries, setVisitedCountries] = useState([]);
+
+    const visitedFunc = (country) => {
+        setVisitedCountries([...visitedCountries, country]);
+    }
 
     const fetchCountries = () => {
-        console.log("Getting some country data");
         // fetch data from the RESTCountries API
         fetch('https://restcountries.com/v3.1/all')
         .then(response => response.json())
@@ -21,13 +25,11 @@ const CountriesContainer = () => {
         fetchCountries();
     }, [])
 
-
     return(
-        <>
-            <h1>I'm a country container!</h1>
-            <CountriesList countries={countries}/>
-            {/* <VisitedCountriesList/> */}
-        </>
+        <main>
+            <CountriesList countries={countries} visitedFunc={visitedFunc}/>
+            <VisitedCountriesList countries={visitedCountries}/>
+        </main>
     );
 }
 
